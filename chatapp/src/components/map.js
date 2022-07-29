@@ -7,8 +7,8 @@ import { geolocated } from "react-geolocated";
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import final from './final.json'
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '1000px',
+  height: '1000px'
 };
 
 
@@ -38,7 +38,7 @@ function MyComponent() {
       
   }
   setM(data) 
-   alert(m[0]['latitude'])
+  //  alert(m[0]['latitude'])
   }
 
   
@@ -143,13 +143,14 @@ const [status, setStatus] = useState(null);
     <div><Signout/>
     {}
     <button onClick={getLocation}>Get Location</button>
-  <h1>Coordinates</h1>
+  {/* <h1>Coordinates</h1>
   <p>{status}</p>
    {/* {m && <p>{m[0]['latitude']}</p>}   */}
   {/* markers[0]["name"]} */}
-  {lat && <p>Latitude: {lat}</p>}
-  {lng && <p>Longitude: {lng}</p> }
-  {m[0]['latitude']}
+  {/* {lat && <p>Latitude: {lat}</p>}
+  {lng && <p>Longitude: {lng}</p> } */} 
+  <p>Zoom out to see nearby services after clicking the locater button :)</p>
+  {/* {m[0]['latitude']} */}
   {/* <GooglePlacesAutocomplete
                             placeholder='search'
                             minLength={2}
@@ -170,7 +171,7 @@ const [status, setStatus] = useState(null);
         mapContainerStyle={containerStyle}
         
         center={{lat:lat,lng:lng}}
-        zoom={25}
+        zoom={14}
         onLoad={onLoad}
         onUnmount={onUnmount}
         
