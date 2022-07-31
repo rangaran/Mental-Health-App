@@ -1,6 +1,6 @@
 # AMMU
 
-<a href="https://github.com/rangaran/Negative-Comment-Blocker"><img src="images/ammu.png" alt=""></a>
+![Ammu](https://github.com/rangaran/rangaran.github.io/blob/main/images/ammu.png)
 
 This app allows users to get connected to nearby Mental health resources or make use of the anonymous chat functionality.
 
