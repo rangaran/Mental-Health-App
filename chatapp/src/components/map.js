@@ -6,6 +6,7 @@ import { Marker,GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { geolocated } from "react-geolocated";
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import final from './final.json'
+import {keys} from './key'
 const containerStyle = {
   width: '1000px',
   height: '1000px'
@@ -76,7 +77,7 @@ const [lng, setLng] = useState(null);
 const [status, setStatus] = useState(null);
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyBTMPFdClSsPiv_VBN51JQXKiSYwzWmX_g"
+    googleMapsApiKey: keys
   })
    let city
    let geocoder
@@ -158,7 +159,7 @@ const [status, setStatus] = useState(null);
                             returnKeyType={'default'}
                             fetchDetails={true}
                             query={{
-                                key: 'AIzaSyBTMPFdClSsPiv_VBN51JQXKiSYwzWmX_g',
+                                
                                 language: 'en', // language of the results
                                 location: '20.8840744, -100.7607736',
                                 radius: '15000', //15 km
@@ -237,7 +238,7 @@ export default MyComponent
 //     lng: -74.005974,
 //   };
 //   const { isLoaded } = useJsApiLoader({
-//     googleMapsApiKey: "AIzaSyBTMPFdClSsPiv_VBN51JQXKiSYwzWmX_g",
+//     googleMapsApiKey: 
 //   });
 //   if (!isLoaded) {
 //     return <div>Google Maps is not loaded</div>;
