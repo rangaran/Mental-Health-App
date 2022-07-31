@@ -1,5 +1,13 @@
-# Getting Started with Create React App
+# AMMU
 
+https://github.com/rangaran/rangaran.github.io/blob/main/images/ammu.png
+
+This app allows users to get connected to nearby Mental health resources or make use of the anonymous chat functionality.
+
+TODO:
+Extend features to allow users to access external services like Good2Talk and improve UI components.
+
+# Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
