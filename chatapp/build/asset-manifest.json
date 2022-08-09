@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Mental-Health-App/static/css/main.ab7ce5ce.css",
+    "main.js": "/Mental-Health-App/static/js/main.dda422db.js",
+    "static/media/sun.svg": "/Mental-Health-App/static/media/sun.339f5fcbe5d19f4a9af41251b03b2283.svg",
+    "static/media/moon.svg": "/Mental-Health-App/static/media/moon.f43c67a800e2c0181aa454dee2444f98.svg",
+    "index.html": "/Mental-Health-App/index.html",
+    "main.ab7ce5ce.css.map": "/Mental-Health-App/static/css/main.ab7ce5ce.css.map",
+    "main.dda422db.js.map": "/Mental-Health-App/static/js/main.dda422db.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab7ce5ce.css",
+    "static/js/main.dda422db.js"
+  ]
+}

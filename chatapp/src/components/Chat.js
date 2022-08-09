@@ -2,10 +2,20 @@ import React, {useState, useEffect,useRef} from 'react'
 import { db, auth } from '../firebase'
 import Sendmessage from './Sendmessage'
 import Signout from './Signout'
-
+import { useDarkMode } from './useDarkMode';
+import { lightTheme, darkTheme } from './theme';
+import { GlobalStyles } from './global';
+import { ThemeProvider } from 'styled-components';
+import Toggle from './Toggle';
+ import Particle from "react-tsparticles";
+import '../App.css'
+import Avatar from 'avataaars';
+import { generateRandomAvatarOptions } from './avatar';
+import particlesConfig from "./icons/particlesConfig.json";
 function Chat() {
   
-
+  const [theme, toggleTheme, componentMounted] = useDarkMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
   const scroll = useRef()
   const [messages, setMessages] = useState([])
   useEffect(
@@ -17,15 +27,25 @@ function Chat() {
   return (
     
     <div id = "chat">
-      
       <Signout/>
-      
+      <h1>Start your chat below</h1>
+      <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyles />
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
+        {/* <center><b>Enable Dark mode</b></center> */}
+        
+      </>
+    </ThemeProvider>
       <div className="msgs">
       {messages.map(({id,text,photoURL,uid})=>(
         <div>
 
         <div key={id} className={`msg ${uid == auth.currentUser.uid ?'sent':'received'}`}>
-          <img src = {photoURL} alt = ""/>
+        <Avatar
+        style={{ width: '100px', height: '100px' }}
+        avatarStyle='Circle'
+        {...generateRandomAvatarOptions() } />
           <p>{text}</p>
       </div>
       </div>

@@ -25,8 +25,8 @@ async function sendMessage(e){
   return (
     <div>
         <form onSubmit={sendMessage}>
-            <Input value={msg} onChange={(e)=>setMsg(e.target.value)}placeholder="Message..." />
-            <Button type="submit">Send</Button>
+            <Input value={msg} onChange={(e)=>setMsg(e.target.value)}placeholder="Message..." color="#ff5c5c" />
+            <Button type="submit"  color="#ff5c5c" >Send</Button>
         </form>
     </div>
   )
