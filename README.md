@@ -1,4 +1,5 @@
 # Mental-Health-App
+# Check out the chatapp directory for building the project on you're own
 ![image](https://user-images.githubusercontent.com/59780995/183971280-81f69c10-f162-433c-8056-4deb5d5c86db.png)
 
 # The Sign In
