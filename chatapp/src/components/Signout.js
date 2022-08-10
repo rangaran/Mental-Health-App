@@ -8,9 +8,7 @@ function Signout() {
   const [state, setState] = useState('idle');
   return (
     <div>
-      {/* <Button  loading={isLoading} >Signout</Button> */}
       <View >
-      <Text style={{textAlign: 'left',paddingBottom: '50px', paddingLeft:'10px', paddingTop: '10px'}}>
       <ReactiveButton
             buttonState={state}
             onClick = {()=> {setState('loading');
@@ -18,7 +16,7 @@ function Signout() {
                 setState('success');
             }, 2000);auth.signOut();}}
             color={'primary'}
-            idleText={'Signout'}
+            idleText={'Sign Out'}
             loadingText={'Loading'}
             successText={'Success'}
             errorText={'Error'}
@@ -37,11 +35,10 @@ function Signout() {
             height={null}
             animation={true}
         />
-        {/* <Button onClick = {() => auth.signOut()}>
-            Signout
-        </Button> */}
-        </Text>
         </View>
+        <h1>
+
+        </h1>
     </div>
   )
 }

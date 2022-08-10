@@ -8,8 +8,9 @@ import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import final from './final.json'
 import {keys} from './key'
 const containerStyle = {
-  width: '1000px',
-  height: '1000px'
+  width: '700px',
+  height: '700px',
+  
 };
 
 
@@ -70,7 +71,10 @@ function MyComponent() {
   ];
     const center = {
         lat: -3.745,
-        lng: -38.523
+        lng: -38.523,
+      
+
+
       };
     const [lat, setLat] = useState(null);
 const [lng, setLng] = useState(null);
@@ -93,7 +97,7 @@ const [status, setStatus] = useState(null);
          
          var x = results[0].formatted_address
          var y = x.split(',')
-         alert(y[1])
+        //  alert(y[1])
          parser(y[1])
          
         //find country name
@@ -120,8 +124,10 @@ const [status, setStatus] = useState(null);
         setLng(position.coords.longitude);
         center.lat = position.coords.latitude
         center.lng = position.coords.longitude
+        
         console.log(center)
         codeLatLng(center.lat,center.lng)
+
       }, () => {
         setStatus('Unable to retrieve your location');
       });
@@ -131,26 +137,36 @@ const [status, setStatus] = useState(null);
   const [map, setMap] = React.useState(null)
 
   const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    // const bounds = new window.google.maps.LatLngBounds(center);
+    // map.fitBounds(bounds);
+    
     setMap(map)
   }, [])
 
   const onUnmount = React.useCallback(function callback(map) {
+    
     setMap(null)
   }, [])
 
   return isLoaded ? (
-    <div><Signout/>
+    <div  style={{
+      
+      backgroundColor: 'black',
+      minWidth:'100%',
+  minHeight:'100vh'
+    }}>
+    <Signout/>
     {}
-    <button onClick={getLocation}>Get Location</button>
+    
+    <button onClick={getLocation}>Press me to get nearby services</button>
+    
   {/* <h1>Coordinates</h1>
   <p>{status}</p>
    {/* {m && <p>{m[0]['latitude']}</p>}   */}
   {/* markers[0]["name"]} */}
   {/* {lat && <p>Latitude: {lat}</p>}
   {lng && <p>Longitude: {lng}</p> } */} 
-  <p>Zoom out to see nearby services after clicking the locater button :)</p>
+  <h1></h1>
   {/* {m[0]['latitude']} */}
   {/* <GooglePlacesAutocomplete
                             placeholder='search'
@@ -172,7 +188,7 @@ const [status, setStatus] = useState(null);
         mapContainerStyle={containerStyle}
         
         center={{lat:lat,lng:lng}}
-        zoom={14}
+        zoom={13}
         onLoad={onLoad}
         onUnmount={onUnmount}
         

@@ -7,11 +7,11 @@ import { lightTheme, darkTheme } from './theme';
 import { GlobalStyles } from './global';
 import { ThemeProvider } from 'styled-components';
 import Toggle from './Toggle';
- import Particle from "react-tsparticles";
+
 import '../App.css'
 import Avatar from 'avataaars';
 import { generateRandomAvatarOptions } from './avatar';
-import particlesConfig from "./icons/particlesConfig.json";
+
 function Chat() {
   
   const [theme, toggleTheme, componentMounted] = useDarkMode();
@@ -28,7 +28,7 @@ function Chat() {
     
     <div id = "chat">
       <Signout/>
-      <h1>Start your chat below</h1>
+      
       <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />

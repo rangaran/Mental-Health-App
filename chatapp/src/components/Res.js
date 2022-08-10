@@ -21,10 +21,9 @@ import { lightTheme, darkTheme } from './theme';
 import { GlobalStyles } from './global';
 import { ThemeProvider } from 'styled-components';
 import Toggle from './Toggle';
- import Particle from "react-tsparticles";
 import '../App.css'
-import particlesConfig from "./icons/particlesConfig.json";
-import Particles from "react-tsparticles";
+
+
 function Res() {  
     
   
@@ -32,35 +31,43 @@ const [count, setRandomCount] = useState(false);
 const [count2, setRandomCount2] = useState(false);
 function clickHandler(e) {
   setRandomCount(true);
+  setb('');
 
 }
 function clickHandler2(e) {
     setRandomCount2(true);
+    setb('');
   
   }
- 
+  const [b, setb] = useState('black');
+  
   return (
     
-    <div>
+    <div  style={{
+      backgroundColor: b,
+      minWidth:'100%',
+  minHeight:'100vh'
+    }}>
        
      
      
      {/* <Particle params={particlesConfig} className="App-particles__container" /> */}
        
-      {count?<h1></h1>:<></>}
-      {count || count2 ? <></>:<h1><Signout/> Select an option</h1>}
+      {/* {count?<></>:<></>} */}
+      {count || count2 ? <></>:<Signout/>}
+      {count || count2 ? <></>:<h1 style={{ color: 'white' }}>Select an option</h1>}
       <p>
-      {count ? <Chat/>:<h1></h1> }
+      {count ? <Chat/>:<></> }
       </p>
       <p>
       {count2 ? 
     <MyComponent />:<h1></h1> }
       </p>
       <p>
-    {count || count2? <h1></h1>:<button onClick={clickHandler}> Anonymous Chat Service </button>}
+    {count || count2? <h1></h1>:<button onClick={clickHandler}>  Anonymous Chat Service </button>}
     </p>
     <p>
-    {count2 || count? <h1></h1>:<button onClick={clickHandler2}> Hospitals/Clinics nearby </button>}
+    {count2 || count? <h1></h1>:<button onClick={clickHandler2}>  Hospitals/Clinics nearby </button>}
       </p>
       
       
