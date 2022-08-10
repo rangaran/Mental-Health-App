@@ -1,13 +1,18 @@
 
 import React from 'react';
+import { useState } from 'react';
+import Res from './Res'
 import Signout from './Signout';
-import { useState } from "react";
+import ReactiveButton from 'reactive-button';
+import { View, StyleSheet, Text } from 'react-native';
 import { InfoWindow, Marker,GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { geolocated } from "react-geolocated";
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import final from './final.json'
 import {keys} from './key'
+
 import './map.css'
+import { setRef } from '@material-ui/core';
 
 const containerStyle = {
   width: '2000px',
@@ -18,9 +23,14 @@ const containerStyle = {
 
 
 function MyComponent() {
+  const [rr, setR] = useState(false);
+  function clickHandler(e) {
+    setR(true)
+  
+  }
   // const markers = final
   //console.log(final[0]["city"])
-  
+  const [state, setState] = useState('idle');
   function parser(cityname){
     //console.log(cityname.toLowerCase().replace(' ', ''))
     
@@ -153,11 +163,64 @@ const [status, setStatus] = useState(null);
 
   return isLoaded ? (
     <div  >
-    <Signout/>
+    
     {}
     
-    <button onClick={getLocation}>Press me to get nearby services</button>
-    
+    {/* <button onClick={getLocation}>Press me to get nearby services</button> */}
+    {rr ? <Res/>: <></>}
+    <Signout/>
+    <ReactiveButton
+            buttonState={state}
+            onClick = {clickHandler}
+            color={'secondary'}
+            idleText={'Go back to services'}
+            loadingText={'Loading'}
+            successText={'Success'}
+            errorText={'Error'}
+            type={'button'}
+            className={'class1 class2'}
+            style={{ borderRadius: '5px'}}
+            outline={false}
+            shadow={false}
+            rounded={false}
+            size={'large'}
+            block={false}
+            messageDuration={2000}
+            disabled={false}
+            buttonRef={null}
+            width={null}
+            height={null}
+            animation={true}
+        />
+        <h1></h1>
+      <ReactiveButton
+            buttonState={state}
+            onClick = {getLocation}
+            color={'secondary'}
+            idleText={'Press me to get nearby services'}
+            loadingText={'Loading'}
+            successText={'Success'}
+            errorText={'Error'}
+            type={'button'}
+            className={'class1 class2'}
+            style={{ borderRadius: '5px'}}
+            outline={false}
+            shadow={false}
+            rounded={false}
+            size={'large'}
+            block={false}
+            messageDuration={2000}
+            disabled={false}
+            buttonRef={null}
+            width={null}
+            height={null}
+            animation={true}
+        />
+        {/* <Button onClick = {() => auth.signOut()}>
+            Signout
+        </Button> */}
+  
+        
   {/* <h1>Coordinates</h1>
   <p>{status}</p>
    {/* {m && <p>{m[0]['latitude']}</p>}   */}

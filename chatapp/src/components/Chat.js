@@ -8,14 +8,22 @@ import { GlobalStyles } from './global';
 import { ThemeProvider } from 'styled-components';
 import Toggle from './Toggle';
 
+import Res from './Res'
+
+import ReactiveButton from 'reactive-button';
 
 import Avatar from 'avataaars';
 import { generateRandomAvatarOptions } from './avatar';
 
 function Chat() {
+  const [rr, setR] = useState(false);
+  function clickHandler(e) {
+    setR(true)
   
+  }
   const [theme, toggleTheme, componentMounted] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
+  const [state, setState] = useState('idle');
   const scroll = useRef()
   const [messages, setMessages] = useState([])
   useEffect(
@@ -27,8 +35,33 @@ function Chat() {
   return (
     
     <div id = "chat">
-      <Signout/>
       
+      {rr ? <Res/>: <></>}
+      <Signout/>
+    <ReactiveButton
+            buttonState={state}
+            onClick = {clickHandler}
+            color={'secondary'}
+            idleText={'Go back to services'}
+            loadingText={'Loading'}
+            successText={'Success'}
+            errorText={'Error'}
+            type={'button'}
+            className={'class1 class2'}
+            style={{ borderRadius: '5px'}}
+            outline={false}
+            shadow={false}
+            rounded={false}
+            size={'large'}
+            block={false}
+            messageDuration={2000}
+            disabled={false}
+            buttonRef={null}
+            width={null}
+            height={null}
+            animation={true}
+        />
+        <h1></h1>
       <ThemeProvider theme={themeMode}>
       <>
         <GlobalStyles />
