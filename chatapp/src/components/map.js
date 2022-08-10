@@ -2,13 +2,15 @@
 import React from 'react';
 import Signout from './Signout';
 import { useState } from "react";
-import { Marker,GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { InfoWindow, Marker,GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { geolocated } from "react-geolocated";
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import final from './final.json'
 import {keys} from './key'
+import './map.css'
+
 const containerStyle = {
-  width: '700px',
+  width: '2000px',
   height: '700px',
   
 };
@@ -27,7 +29,7 @@ function MyComponent() {
     {
       //console.log(final[i]["city"])
       if((final[i]["city"]).includes(cityname.replace(' ', ''))||(final[i]["city"]).includes(cityname.toLowerCase().replace(' ', ''))){
-        var feed = {id : i, latitude: Number(final[i]["latitude"]), longitude: Number(final[i]["longitude"])};
+        var feed = {id : i, latitude: Number(final[i]["latitude"]), longitude: Number(final[i]["longitude"]), facility_name: final[i]["facility_name"]};
         
         data.push(feed);
         
@@ -35,6 +37,7 @@ function MyComponent() {
         console.log(final[i]["latitude"]);
         
       console.log(final[i]["city"]);
+      console.log(final[i]["facility_name"]);
       }
        
       
@@ -97,7 +100,7 @@ const [status, setStatus] = useState(null);
          
          var x = results[0].formatted_address
          var y = x.split(',')
-        //  alert(y[1])
+        alert("Services near " + x)
          parser(y[1])
          
         //find country name
@@ -142,19 +145,14 @@ const [status, setStatus] = useState(null);
     
     setMap(map)
   }, [])
-
+  const [infoWindowID, setInfoWindowID] = useState("");
   const onUnmount = React.useCallback(function callback(map) {
     
     setMap(null)
   }, [])
 
   return isLoaded ? (
-    <div  style={{
-      
-      backgroundColor: 'black',
-      minWidth:'100%',
-  minHeight:'100vh'
-    }}>
+    <div  >
     <Signout/>
     {}
     
@@ -188,16 +186,34 @@ const [status, setStatus] = useState(null);
         mapContainerStyle={containerStyle}
         
         center={{lat:lat,lng:lng}}
-        zoom={13}
+        zoom={14}
         onLoad={onLoad}
         onUnmount={onUnmount}
         
       > 
-      <Marker position={{lat:lat,lng:lng}} />
+      <Marker position={{lat:lat,lng:lng}} icon={{
+              // path: google.maps.SymbolPath.CIRCLE,
+              url: (require('./map.png')),
+              fillColor: '#EB00FF',
+              scale: 7,
+          }}>
+      
+        </Marker>
        {m &&
-          m.map(({ id,latitude,longitude }, index) => (
+          m.map(({ id,latitude,longitude,facility_name }, index) => (
             
-            <Marker position={{lat:latitude,lng:longitude}} key={index} />
+            <Marker  position={{lat:latitude,lng:longitude}} key={index}  onClick={() => {
+              setInfoWindowID(index);
+            }}>
+              {infoWindowID === index && (
+                <InfoWindow>
+                  <div style={{'color':'black'}}>
+                               {facility_name}
+                            </div>
+                </InfoWindow>
+              )}
+             
+            </Marker>
           ))} 
           
 {/* {markers &&

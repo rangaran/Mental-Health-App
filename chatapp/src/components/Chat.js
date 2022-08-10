@@ -8,7 +8,7 @@ import { GlobalStyles } from './global';
 import { ThemeProvider } from 'styled-components';
 import Toggle from './Toggle';
 
-import '../App.css'
+
 import Avatar from 'avataaars';
 import { generateRandomAvatarOptions } from './avatar';
 
