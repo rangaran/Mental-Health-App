@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Mental-Health-App/static/css/main.cd0dbf80.css",
-    "main.js": "/Mental-Health-App/static/js/main.12c321b5.js",
+    "main.css": "/Mental-Health-App/static/css/main.02871142.css",
+    "main.js": "/Mental-Health-App/static/js/main.b78cce7e.js",
     "static/media/map.png": "/Mental-Health-App/static/media/map.2d8d638ffb3ef16c15e9.png",
     "static/media/sun.svg": "/Mental-Health-App/static/media/sun.339f5fcbe5d19f4a9af41251b03b2283.svg",
     "static/media/moon.svg": "/Mental-Health-App/static/media/moon.f43c67a800e2c0181aa454dee2444f98.svg",
     "index.html": "/Mental-Health-App/index.html",
-    "main.cd0dbf80.css.map": "/Mental-Health-App/static/css/main.cd0dbf80.css.map",
-    "main.12c321b5.js.map": "/Mental-Health-App/static/js/main.12c321b5.js.map"
+    "main.02871142.css.map": "/Mental-Health-App/static/css/main.02871142.css.map",
+    "main.b78cce7e.js.map": "/Mental-Health-App/static/js/main.b78cce7e.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd0dbf80.css",
-    "static/js/main.12c321b5.js"
+    "static/css/main.02871142.css",
+    "static/js/main.b78cce7e.js"
   ]
 }
