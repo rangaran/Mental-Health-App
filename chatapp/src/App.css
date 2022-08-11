@@ -7,12 +7,17 @@ img {
     border: 2px solid black;
   } 
   h1 {
-    padding-top: 80px;
-    margin: 0;
+    /* padding-top: 80px; */
+    
     
     font-size: 80px;
   font-weight: bolder;
     text-align:center;
+}
+.ex1 {
+ 
+ 
+  
 }
 button {
   margin:auto;

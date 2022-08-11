@@ -5,7 +5,7 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import {Button} from '@material-ui/core'
+import {Button, Hidden} from '@material-ui/core'
 import { auth } from '../firebase.js'
 import Signin from './Signin';
 import Signout from './Signout';
@@ -22,11 +22,11 @@ import { GlobalStyles } from './global';
 import { ThemeProvider } from 'styled-components';
 import Toggle from './Toggle';
 import '../App.css'
-
+import ReactiveButton from 'reactive-button';
 
 function Res() {  
     
-  
+  const [state, setState] = useState('idle');
 const [count, setRandomCount] = useState(false);
 const [count2, setRandomCount2] = useState(false);
 function clickHandler(e) {
@@ -44,9 +44,8 @@ function clickHandler2(e) {
   return (
     
     <div  style={{
-      backgroundColor: b,
-      minWidth:'100%',
-  minHeight:'100vh'
+      
+    minHeight:'100vh'
     }}>
        
      
@@ -55,7 +54,7 @@ function clickHandler2(e) {
        
       {/* {count?<></>:<></>} */}
       {count || count2 ? <></>:<Signout/>}
-      {count || count2 ? <></>:<h1 style={{ color: 'white' }}>Select an option</h1>}
+      {count || count2 ? <></>:<h1 >Select an option</h1>}
       <p>
       {count ? <Chat/>:<></> }
       </p>
@@ -63,12 +62,56 @@ function clickHandler2(e) {
       {count2 ? 
     <MyComponent />:<h1></h1> }
       </p>
-      <p>
-    {count || count2? <h1></h1>:<button onClick={clickHandler}>  Anonymous Chat Service </button>}
-    </p>
-    <p>
-    {count2 || count? <h1></h1>:<button onClick={clickHandler2}>  Hospitals/Clinics nearby </button>}
-      </p>
+      <center>
+      {count || count2? <h1></h1>: <ReactiveButton
+            buttonState={state}
+            onClick = {clickHandler}
+            color={'secondary'}
+            idleText={'Anonymous Chat Service'}
+            loadingText={'Loading'}
+            successText={'Success'}
+            errorText={'Error'}
+            type={'button'}
+            className={'class1 class2'}
+            style={{ borderRadius: '5px'}}
+            outline={false}
+            shadow={false}
+            rounded={false}
+            size={'large'}
+            block={false}
+            messageDuration={2000}
+            disabled={false}
+            buttonRef={null}
+            width={null}
+            height={null}
+            animation={true}
+        />}
+   
+    <p></p>
+    {count || count2? <h1></h1>: <ReactiveButton
+            buttonState={state}
+            onClick = {clickHandler2}
+            color={'secondary'}
+            idleText={'Professional Services Nearby'}
+            loadingText={'Loading'}
+            successText={'Success'}
+            errorText={'Error'}
+            type={'button'}
+            className={'class1 class2'}
+            style={{ borderRadius: '5px'}}
+            outline={false}
+            shadow={false}
+            rounded={false}
+            size={'large'}
+            block={false}
+            messageDuration={2000}
+            disabled={false}
+            buttonRef={null}
+            width={null}
+            height={null}
+            animation={true}
+        />}
+      </center>
       
       
     </div>

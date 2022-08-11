@@ -162,14 +162,12 @@ const [status, setStatus] = useState(null);
   }, [])
 
   return isLoaded ? (
-    <div  >
-    
-    {}
+    <div >
     
     {/* <button onClick={getLocation}>Press me to get nearby services</button> */}
     {rr ? <Res/>: <></>}
-    <Signout/>
-    <ReactiveButton
+    {rr ? <></>:<Signout/>}
+    {rr ? <></>: <ReactiveButton
             buttonState={state}
             onClick = {clickHandler}
             color={'secondary'}
@@ -191,9 +189,9 @@ const [status, setStatus] = useState(null);
             width={null}
             height={null}
             animation={true}
-        />
-        <h1></h1>
-      <ReactiveButton
+        />}
+        {rr ? <></>:<p></p>} 
+        {rr ? <></>:<ReactiveButton
             buttonState={state}
             onClick = {getLocation}
             color={'secondary'}
@@ -215,7 +213,7 @@ const [status, setStatus] = useState(null);
             width={null}
             height={null}
             animation={true}
-        />
+        /> }
         {/* <Button onClick = {() => auth.signOut()}>
             Signout
         </Button> */}
@@ -227,7 +225,7 @@ const [status, setStatus] = useState(null);
   {/* markers[0]["name"]} */}
   {/* {lat && <p>Latitude: {lat}</p>}
   {lng && <p>Longitude: {lng}</p> } */} 
-  <h1></h1>
+  {!rr && <h1></h1>}
   {/* {m[0]['latitude']} */}
   {/* <GooglePlacesAutocomplete
                             placeholder='search'
@@ -245,8 +243,8 @@ const [status, setStatus] = useState(null);
                             }}
     /> */}
     
-      <GoogleMap
-        mapContainerStyle={containerStyle}
+    {!rr && <GoogleMap
+        mapContainerStyle={ containerStyle}
         
         center={{lat:lat,lng:lng}}
         zoom={14}
@@ -254,22 +252,22 @@ const [status, setStatus] = useState(null);
         onUnmount={onUnmount}
         
       > 
-      <Marker position={{lat:lat,lng:lng}} icon={{
+      {rr ? <></>: <Marker position={{lat:lat,lng:lng}} icon={{
               // path: google.maps.SymbolPath.CIRCLE,
               url: (require('./map.png')),
               fillColor: '#EB00FF',
               scale: 7,
           }}>
       
-        </Marker>
-       {m &&
+        </Marker>}
+       {!rr && m &&
           m.map(({ id,latitude,longitude,facility_name }, index) => (
             
             <Marker  position={{lat:latitude,lng:longitude}} key={index}  onClick={() => {
               setInfoWindowID(index);
             }}>
               {infoWindowID === index && (
-                <InfoWindow>
+                 <InfoWindow>
                   <div style={{'color':'black'}}>
                                {facility_name}
                             </div>
@@ -287,7 +285,7 @@ const [status, setStatus] = useState(null);
           
         { /* Child components, such as markers, info windows, etc. */ }
         <></>
-      </GoogleMap>
+      </GoogleMap>}
       </div>
   ) : <></>
 }

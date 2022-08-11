@@ -34,11 +34,11 @@ function Chat() {
 }, [])
   return (
     
-    <div id = "chat">
+    <div >
       
       {rr ? <Res/>: <></>}
-      <Signout/>
-    <ReactiveButton
+      {rr ? <></>:<Signout/>}
+      {rr ? <></>:<ReactiveButton
             buttonState={state}
             onClick = {clickHandler}
             color={'secondary'}
@@ -60,31 +60,31 @@ function Chat() {
             width={null}
             height={null}
             animation={true}
-        />
-        <h1></h1>
-      <ThemeProvider theme={themeMode}>
+        />}
+        {rr ? <></>:<h1></h1>}
+      {!rr &&<ThemeProvider theme={themeMode}>
       <>
-        <GlobalStyles />
-        <Toggle theme={theme} toggleTheme={toggleTheme} />
+      {rr ? <></>:<GlobalStyles />}
+        {rr ? <></>:<Toggle theme={theme} toggleTheme={toggleTheme} />}
         {/* <center><b>Enable Dark mode</b></center> */}
         
       </>
-    </ThemeProvider>
-      <div className="msgs">
-      {messages.map(({id,text,photoURL,uid})=>(
+    </ThemeProvider>}
+    {!rr && <div className="msgs">
+      {!rr && messages.map(({id,text,photoURL,uid})=>(
         <div>
 
-        <div key={id} className={`msg ${uid == auth.currentUser.uid ?'sent':'received'}`}>
-        <Avatar
+<div key={id} className={`msg ${uid == auth.currentUser.uid && !rr ?'sent':'received'}`}>
+{rr ? <></>:<Avatar
         style={{ width: '100px', height: '100px' }}
         avatarStyle='Circle'
-        {...generateRandomAvatarOptions() } />
+        {...generateRandomAvatarOptions() } />}
           <p>{text}</p>
       </div>
       </div>
       ))}
-      </div>
-      <Sendmessage scroll />
+      </div>}
+      {rr ? <></>:<Sendmessage scroll />}
       <div ref = {scroll}></div>
       </div>
   )

@@ -36,7 +36,10 @@ function Signin() {
       ,
   
   minWidth:'100%',
-  minHeight:'100vh'
+  minHeight:'100vh',
+  
+  backgroundSize: 'contain',
+  backgroundRepeat: 'repeat'
 
     }}> 
         
