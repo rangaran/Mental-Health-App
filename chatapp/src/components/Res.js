@@ -39,14 +39,24 @@ function clickHandler2(e) {
     setb('');
   
   }
-  const [b, setb] = useState('black');
+  const [b, setb] = useState("url(" + "https://static.vecteezy.com/system/resources/previews/003/066/808/original/abstract-minimalist-hand-drawn-background-free-vector.jpg" + ")");
   
   return (
-    
-    <div  style={{
+    <div>
+    <div style={{ 
+      backgroundImage: b
+      ,backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      minHeight:'120vh',
+      minWidth:'100vh',
+        overflow:'hidden'
+  
+    }}> 
+    {/* <div  style={{
       
     minHeight:'100vh'
-    }}>
+    }}> */}
        
      
      
@@ -114,6 +124,7 @@ function clickHandler2(e) {
       </center>
       
       
+    </div>
     </div>
 
         
