@@ -4,6 +4,7 @@
   "private": false,
   "homepage": "https://rangaran.github.io/Mental-Health-App",
   "dependencies": {
+    "@aws-amplify/ui-react": "^3.4.0",
     "@girishsawant999/react-loading-button": "^1.0.8",
     "@react-google-maps/api": "^2.12.1",
     "@testing-library/jest-dom": "^5.16.4",
@@ -11,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/react-native-elements": "^0.18.0",
     "avataaars": "^2.0.0",
+    "aws-amplify": "^4.3.30",
     "mdb-react-ui-kit": "^4.1.0",
     "neumorphism-ui": "^1.0.2",
     "re-resizable": "^6.9.9",

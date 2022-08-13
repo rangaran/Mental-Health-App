@@ -23,12 +23,13 @@ import { ThemeProvider } from 'styled-components';
 import Toggle from './Toggle';
 import '../App.css'
 import ReactiveButton from 'reactive-button';
-
+import Blog from './Blog'
 function Res() {  
     
   const [state, setState] = useState('idle');
 const [count, setRandomCount] = useState(false);
 const [count2, setRandomCount2] = useState(false);
+const [count3, setRandomCount3] = useState(false);
 function clickHandler(e) {
   setRandomCount(true);
   setb('');
@@ -36,6 +37,11 @@ function clickHandler(e) {
 }
 function clickHandler2(e) {
     setRandomCount2(true);
+    setb('');
+  
+  }
+  function clickHandler3(e) {
+    setRandomCount3(true);
     setb('');
   
   }
@@ -63,17 +69,18 @@ function clickHandler2(e) {
      {/* <Particle params={particlesConfig} className="App-particles__container" /> */}
        
       {/* {count?<></>:<></>} */}
-      {count || count2 ? <></>:<Signout/>}
-      {count || count2 ? <></>:<h1 >Select an option</h1>}
+      {count || count2 || count3 ? <></>:<Signout/>}
+      {count || count2 || count3? <></>:<h1 >Select an option</h1>}
       <p>
       {count ? <Chat/>:<></> }
+      {count3 ? <Blog/>:<></> }
       </p>
       <p>
       {count2 ? 
-    <MyComponent />:<h1></h1> }
+    <MyComponent />:<></> }
       </p>
       <center>
-      {count || count2? <h1></h1>: <ReactiveButton
+      {count || count2 || count3 ? <h1></h1>: <ReactiveButton
             buttonState={state}
             onClick = {clickHandler}
             color={'secondary'}
@@ -98,11 +105,35 @@ function clickHandler2(e) {
         />}
    
     <p></p>
-    {count || count2? <h1></h1>: <ReactiveButton
+    {count || count2 ||count3? <h1></h1>: <ReactiveButton
             buttonState={state}
             onClick = {clickHandler2}
             color={'secondary'}
             idleText={'Professional Services Nearby'}
+            loadingText={'Loading'}
+            successText={'Success'}
+            errorText={'Error'}
+            type={'button'}
+            className={'class1 class2'}
+            style={{ borderRadius: '5px'}}
+            outline={false}
+            shadow={false}
+            rounded={false}
+            size={'large'}
+            block={false}
+            messageDuration={2000}
+            disabled={false}
+            buttonRef={null}
+            width={null}
+            height={null}
+            animation={true}
+        />}
+<p></p>
+{count || count2 || count3? <h1></h1>: <ReactiveButton
+            buttonState={state}
+            onClick = {clickHandler3}
+            color={'secondary'}
+            idleText={'Motivational Blog'}
             loadingText={'Loading'}
             successText={'Success'}
             errorText={'Error'}
