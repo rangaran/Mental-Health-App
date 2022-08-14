@@ -34,10 +34,10 @@ export default function SocialPost(props) {
         <Flex
           gap="16px"
           direction="column"
-          width="688px"
+          width="888px"
           grow="1"
-          basis="688px"
-          height="250px"
+          basis="888px"
+          height="377px"
           position="relative"
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Text")}
@@ -123,6 +123,16 @@ export default function SocialPost(props) {
               ></Text>
             </Flex>
           </Flex>
+          <Image
+            width="146px"
+            height="160px"
+            shrink="0"
+            position="relative"
+            borderRadius="50px"
+            padding="0px 0px 0px 0px"
+            src={post?.image}
+            {...getOverrideProps(overrides, "image")}
+          ></Image>
           <Flex
             gap="16px"
             alignItems="flex-start"
@@ -143,9 +153,9 @@ export default function SocialPost(props) {
               display="flex"
               direction="column"
               justifyContent="flex-start"
-              width="688px"
+              width="888px"
               grow="1"
-              basis="688px"
+              basis="888px"
               position="relative"
               padding="0px 0px 0px 0px"
               whiteSpace="pre-wrap"
@@ -157,16 +167,6 @@ export default function SocialPost(props) {
             ></Text>
           </Flex>
         </Flex>
-        <Image
-          width="160px"
-          height="160px"
-          shrink="0"
-          position="relative"
-          borderRadius="50px"
-          padding="0px 0px 0px 0px"
-          src={post?.image}
-          {...getOverrideProps(overrides, "image")}
-        ></Image>
       </Flex>
     </Flex>
   );

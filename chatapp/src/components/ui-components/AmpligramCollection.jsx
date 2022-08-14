@@ -12,9 +12,9 @@ import {
   getOverrideProps,
   useDataStoreBinding,
 } from "@aws-amplify/ui-react/internal";
-import SocialPost from "./SocialPost";
+import Ampligram from "./Ampligram";
 import { Collection } from "@aws-amplify/ui-react";
-export default function SocialPostCollection(props) {
+export default function AmpligramCollection(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const itemsPagination = {
     sort: (s) => s.createdAt(SortDirection.DESCENDING),
@@ -32,14 +32,14 @@ export default function SocialPostCollection(props) {
       justifyContent="stretch"
       items={items || []}
       {...rest}
-      {...getOverrideProps(overrides, "SocialPostCollection")}
+      {...getOverrideProps(overrides, "AmpligramCollection")}
     >
       {(item, index) => (
-        <SocialPost
+        <Ampligram
           post={item}
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></SocialPost>
+        ></Ampligram>
       )}
     </Collection>
   );

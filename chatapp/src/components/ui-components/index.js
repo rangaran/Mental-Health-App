@@ -32,6 +32,7 @@ export { default as MyIcon } from "./MyIcon";
 export { default as Features2x3 } from "./Features2x3";
 export { default as FeaturesText2x2 } from "./FeaturesText2x2";
 export { default as CommentCard } from "./CommentCard";
+export { default as AmpligramCollection } from "./AmpligramCollection";
 export { default as PostCollection } from "./PostCollection";
 export { default as MarketingFooter } from "./MarketingFooter";
 export { default as studioTheme } from "./studioTheme";
